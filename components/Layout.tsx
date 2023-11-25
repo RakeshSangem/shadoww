@@ -26,7 +26,6 @@ export default function Layout({ children }: LayoutProps): JSX.Element {
         <meta property="og:url" content="https://shadoww-gen.vercel.app/" />
         <meta property="og:description" content="Generate box shadow css" />
         <meta property="og:image" content="/public/shadoww-gen.webp" />
-        // add twitter card
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="https://shadoww-gen.vercel.app" />
         <meta name="twitter:title" content="Shadoww Gen" />
