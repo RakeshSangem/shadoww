@@ -3,25 +3,123 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --bg-color: rgb(242, 242, 242);
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: var(--bg-color);
+  color: #515059;
+  margin: 0;
+}
+
+/* Input Range styles */
+
+input[type='range'] {
+  width: 100%;
+  height: 1.5em;
+  border-radius: 0.625em;
+  background: transparent;
+  font-size: 1em;
+  cursor: pointer;
+}
+input[type='range']::-webkit-slider-runnable-track,
+input[type='range']::-webkit-slider-thumb,
+input[type='range'] {
+  -webkit-appearance: none;
+}
+input[type='range']::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 0.55em;
+  border-radius: 6.25em;
+  box-shadow:
+    inset 0 1px 1px #8f8484,
+    inset 0 0 0 0.5em #c8c7c7,
+    inset 0 1px 1px 0.5em #a5a5a5,
+    inset 0 -1px 0 0.5em #fff;
+  background: #ddd;
+}
+input[type='range']::-moz-range-track {
+  width: 100%;
+  height: 1.25em;
+  border-radius: 6.25em;
+  box-shadow:
+    inset 0 1px 1px #e1e1e1,
+    inset 0 0 0 0.5em #f5f5f5,
+    inset 0 1px 1px 0.5em #a5a5a5,
+    inset 0 -1px 0 0.5em #fff;
+  background: #ddd;
+}
+input[type='range']::-webkit-slider-thumb {
+  /* fix thumb position 
+   * starting from top of track */
+  margin-top: -0.35em;
+  border: none;
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 50%;
+  box-shadow:
+    0 0.15em 0.25em #b2b2b2,
+    0 0.15em 0.2em #b2b2b2,
+    inset 0 -0.125em 0.125em #949494,
+    inset 0 0 0 0.18em #bbb,
+    inset 0 1px 0.125em 0.05em #676767;
+  background: #282d37;
+  cursor: ew-resize;
+}
+input[type='range']::-moz-range-thumb {
+  border: none;
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 50%;
+  box-shadow:
+    0 0.25em 0.25em #b2b2b2,
+    0 0.25em 0.5em #b2b2b2,
+    inset 0 -0.125em 0.125em #949494,
+    inset 0 0 0 0.25em #bbb,
+    inset 0 1px 0.125em 0.05em #ababab;
+  background: #888;
+  cursor: ew-resize;
+}
+input[type='range']:focus {
+  outline: none;
+  /* box-shadow: 0 1px 0.25em rgb(247, 229, 226); */
+}
+
+/* thumb focus should have the gold  color when it is in focus */
+input[type='range']:focus::-webkit-slider-thumb {
+  outline: 4px solid rgb(152, 147, 255, 0.5);
+}
+/* Input Range styles end */
+
+/* Input: Color styles */
+
+input[type='color'] {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  /* border: 0; */
+  cursor: pointer;
+  height: 2em;
+  border-radius: 50%;
+  padding: 0;
+  width: 2em;
+}
+
+::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+::-webkit-color-swatch {
+  border: 0;
+  border-radius: 6px;
+}
+
+::-moz-color-swatch,
+::-moz-focus-inner {
+  border: 0;
+}
+
+::-moz-focus-inner {
+  padding: 0;
 }
