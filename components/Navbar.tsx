@@ -1,3 +1,4 @@
+import Github from './icons/Github';
 import Logo from './icons/Logo';
 
 export default function Navbar(): JSX.Element {
@@ -12,11 +13,13 @@ export default function Navbar(): JSX.Element {
           <span>Shadow Gen </span>
         </a>
       </div>
-      {/* <div className="px-4 cursor-pointer">
-        <a href="" target="_blank" rel="noopener noreferrer">
-          Github
-        </a>
-      </div> */}
+      <a
+        href="https://github.com/RakeshSangem/shadoww"
+        target="_blank"
+        className="duration-300 p-1 rounded-lg hover:bg-gray-300 "
+      >
+        <Github />
+      </a>
     </nav>
   );
 }
