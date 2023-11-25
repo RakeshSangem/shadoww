@@ -19,7 +19,6 @@ export default function Layout({ children }: LayoutProps): JSX.Element {
           content="box shadow, css, generator, rakesh sangem"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
         <meta
           property="og:title"
           content="Box Shadow Generator by Rakesh Sangem"
@@ -31,6 +30,15 @@ export default function Layout({ children }: LayoutProps): JSX.Element {
           property="og:image"
           content="https://box-shadow.vercel.app/og-image.png"
         />
+        // add twitter card
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="https://shadoww-gen.vercel.app" />
+        <meta name="twitter:title" content="Shadoww Gen" />
+        <meta
+          name="twitter:description"
+          content="Box shadow generator by Rakesh Sangem"
+        />
+        <meta name="twitter:image" content="/shadoww-gen.webp" />
       </Head>
 
       <Navbar />
