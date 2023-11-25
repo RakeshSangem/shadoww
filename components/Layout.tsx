@@ -21,10 +21,10 @@ export default function Layout({ children }: LayoutProps): JSX.Element {
 
         <meta
           property="og:title"
-          content="Box Shadow Generator by Rakesh Sangem"
+          content="Shadoww Gen - Create beautiful box shadows"
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://shadoww-gen.vercel.app/" />
+        <meta property="og:url" content="https://shadoww-gen.vercel.app" />
         <meta
           property="og:description"
           content="Create beautiful box shadows"

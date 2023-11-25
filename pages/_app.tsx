@@ -1,6 +1,7 @@
 import Layout from '@/components/Layout';
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
+import { Analytics } from '@vercel/analytics/react';
 import { Toaster } from 'sonner';
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -8,6 +9,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <Layout>
       <Component {...pageProps} />
       <Toaster position="top-center" richColors />
+      <Analytics />
     </Layout>
   );
 }
