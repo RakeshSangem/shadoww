@@ -33,7 +33,10 @@ export default function Layout({ children }: LayoutProps): JSX.Element {
           name="twitter:description"
           content="Box shadow generator by Rakesh Sangem"
         />
-        <meta name="twitter:image" content="/shadoww-gen.webp" />
+        <meta
+          name="twitter:image"
+          content="https://shadoww-gen.vercel.app/shadoww-gen.webp"
+        />
       </Head>
 
       <Navbar />
