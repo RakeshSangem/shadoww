@@ -1,7 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
 import Navbar from './Navbar';
-
 interface LayoutProps {
   children: React.ReactNode;
 }
@@ -24,12 +23,9 @@ export default function Layout({ children }: LayoutProps): JSX.Element {
           content="Box Shadow Generator by Rakesh Sangem"
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://box-shadow.vercel.app/" />
+        <meta property="og:url" content="https://shadoww-gen.vercel.app/" />
         <meta property="og:description" content="Generate box shadow css" />
-        <meta
-          property="og:image"
-          content="https://box-shadow.vercel.app/og-image.png"
-        />
+        <meta property="og:image" content="/public/shadoww-gen.webp" />
         // add twitter card
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="https://shadoww-gen.vercel.app" />
@@ -38,7 +34,7 @@ export default function Layout({ children }: LayoutProps): JSX.Element {
           name="twitter:description"
           content="Box shadow generator by Rakesh Sangem"
         />
-        <meta name="twitter:image" content="/shadoww-gen.webp" />
+        <meta name="twitter:image" content="/public/shadoww-gen.webp" />
       </Head>
 
       <Navbar />
