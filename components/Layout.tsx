@@ -9,8 +9,8 @@ export default function Layout({ children }: LayoutProps): JSX.Element {
   return (
     <div className="flex flex-col min-h-screen max-w-7xl mx-auto">
       <Head>
-        <title>Box Shadow Generator by Rakesh Sangem</title>
-        <meta name="description" content="Generate box shadow css" />
+        <title>Shadoww Gen</title>
+        <meta name="description" content="Create beautiful box shadows" />
         <link rel="icon" href="/favicon.ico" />
         <meta name="author" content="Rakesh Sangem" />
         <meta
@@ -25,7 +25,7 @@ export default function Layout({ children }: LayoutProps): JSX.Element {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://shadoww-gen.vercel.app/" />
         <meta property="og:description" content="Generate box shadow css" />
-        <meta property="og:image" content="/public/shadoww-gen.webp" />
+        <meta property="og:image" content="/shadoww-gen.webp" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="https://shadoww-gen.vercel.app" />
         <meta name="twitter:title" content="Shadoww Gen" />
@@ -33,7 +33,7 @@ export default function Layout({ children }: LayoutProps): JSX.Element {
           name="twitter:description"
           content="Box shadow generator by Rakesh Sangem"
         />
-        <meta name="twitter:image" content="/public/shadoww-gen.webp" />
+        <meta name="twitter:image" content="/shadoww-gen.webp" />
       </Head>
 
       <Navbar />
