@@ -69,7 +69,7 @@ export default function Slider({
               }
             }}
             value={value}
-            className="border-[1px] border-gray-200 px-4 py-1 rounded-sm w-1/3"
+            className="border-[1px] border-gray-200 px-4 py-1 rounded-md w-1/3 text-center"
           />
         </div>
       </>
