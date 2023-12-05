@@ -16,7 +16,7 @@ export default function Home() {
   const [opacity, setOpacity] = useState<number>(100);
   const [color, setColor] = useState<string>('#000000');
   const [generatedCSS, setGeneratedCSS] = useState<string>('');
-  const [toggle, setToggle] = useState<boolean>(false);
+  const [inner, setInner] = useState<boolean>(false);
 
   function hexToRgb(hexString: string): string {
     const hex = String(hexString).replace(/[^0-9a-f]/gi, '');
@@ -29,15 +29,21 @@ export default function Home() {
 
   const generateCSS = (): string => {
     const cssLines = [
-      `box-shadow: ${x}px ${y}px ${blur}px ${spread}px rgba(${hexToRgb(
-        color
-      )}, ${opacity / 100 || 1});`,
-      `-moz-box-shadow: ${x}px ${y}px ${blur}px ${spread}px rgba(${hexToRgb(
-        color
-      )}, ${opacity / 100 || 1});`,
-      `-webkit-box-shadow: ${x}px ${y}px ${blur}px ${spread}px rgba(${hexToRgb(
-        color
-      )}, ${opacity / 100 || 1});`,
+      `box-shadow: ${
+        inner ? 'inset' : ''
+      } ${x}px ${y}px ${blur}px ${spread}px rgba(${hexToRgb(color)}, ${
+        opacity / 100 || 1
+      });`,
+      `-moz-box-shadow: ${
+        inner ? 'inset' : ''
+      } ${x}px ${y}px ${blur}px ${spread}px rgba(${hexToRgb(color)}, ${
+        opacity / 100 || 1
+      });`,
+      `-webkit-box-shadow: ${
+        inner ? 'inset' : ''
+      } ${x}px ${y}px ${blur}px ${spread}px rgba(${hexToRgb(color)}, ${
+        opacity / 100 || 1
+      });`,
     ];
 
     const joinedCSS = cssLines.join('\n');
@@ -50,7 +56,7 @@ export default function Home() {
       await navigator.clipboard.writeText(generateCSS());
       toast.success('Copied to clipboard');
     } else {
-      console.log('Clipboard API not available');
+      toast.error('Failed to copy to clipboard');
     }
   };
 
@@ -64,18 +70,25 @@ export default function Home() {
           spread={spread}
           color={color}
           opacity={opacity}
+          inner={inner}
         />
         <div className="w-full flex flex-col items-center justify-center">
           <div className="relative w-3/4 bg-white shadow-md flex flex-col rounded-lg py-8 border-[1px] border-[#D8D8D8y]">
-            <span className="px-4 mx-8">{`box-shadow: ${x}px ${y}px ${blur}px ${spread}px  rgba(${hexToRgb(
-              color
-            )}, ${opacity / 100 || 1});`}</span>
-            <span className="px-4 mx-8">{`-moz-box-shadow: ${x}px ${y}px ${blur}px ${spread}px  rgba(${hexToRgb(
-              color
-            )}, ${opacity / 100 || 1});`}</span>
-            <span className="px-4 mx-8">{`-webkit-box-shadow: ${x}px ${y}px ${blur}px ${spread}px  rgba(${hexToRgb(
-              color
-            )}, ${opacity / 100 || 1});`}</span>
+            <span className="px-4 mx-8">{`box-shadow: ${
+              inner ? 'inset' : ''
+            } ${x}px ${y}px ${blur}px ${spread}px  rgba(${hexToRgb(color)}, ${
+              opacity / 100 || 1
+            });`}</span>
+            <span className="px-4 mx-8">{`-moz-box-shadow: ${
+              inner ? 'inset' : ''
+            } ${x}px ${y}px ${blur}px ${spread}px  rgba(${hexToRgb(color)}, ${
+              opacity / 100 || 1
+            });`}</span>
+            <span className="px-4 mx-8">{`-webkit-box-shadow: ${
+              inner ? 'inset' : ''
+            } ${x}px ${y}px ${blur}px ${spread}px  rgba(${hexToRgb(color)}, ${
+              opacity / 100 || 1
+            });`}</span>
             <button
               onClick={copyToClipboard}
               className="absolute grid place-items-center right-4 top-4 w-8 h-8 hover:bg-gray-100 rounded-md hover:scale-105 duration-300 active:scale-100"
@@ -95,7 +108,7 @@ export default function Home() {
         </div>
       </section>
 
-      <aside className="w-[420px] m-4 rounded-lg bg-white overflow-y-scroll flex-shrink-0 p-8 border-l border-gray-200">
+      <aside className="w-[420px] m-4 rounded-lg bg-white overflow-y-scroll flex-shrink-0 p-4 border-l border-gray-200">
         <ControlPanel
           x={x}
           y={y}
@@ -109,6 +122,7 @@ export default function Home() {
           onSpreadChange={setSpread}
           onOpacityChange={setOpacity}
           onColorChange={setColor}
+          onToggleChange={setInner}
         />
       </aside>
     </div>

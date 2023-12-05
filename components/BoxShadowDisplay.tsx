@@ -1,4 +1,3 @@
-// BoxShadowDisplay.tsx
 import { hexToRgb } from '@/utils/utils';
 import React from 'react';
 
@@ -9,6 +8,7 @@ interface BoxShadowDisplayProps {
   spread: number;
   color: string;
   opacity: number;
+  inner?: boolean;
 }
 
 export default function BoxShadowDisplay({
@@ -18,14 +18,19 @@ export default function BoxShadowDisplay({
   spread,
   color,
   opacity,
+  inner,
 }: BoxShadowDisplayProps): JSX.Element {
+  console.log(inner);
+
   return (
     <div
       className="w-60 h-60 bg-white border border-slate-400 rounded-2xl"
       style={{
-        boxShadow: `${x}px ${y}px ${blur}px ${spread}px rgba(${hexToRgb(
-          color
-        )}, ${opacity / 100 || 1})`,
+        boxShadow: `${
+          inner ? 'inset ' : ''
+        }${x}px ${y}px ${blur}px ${spread}px rgba(${hexToRgb(color)}, ${
+          opacity / 100 || 1
+        })`,
       }}
     ></div>
   );

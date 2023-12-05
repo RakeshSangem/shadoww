@@ -1,8 +1,9 @@
 // ControlPanel.tsx
 import React from 'react';
 import Slider from '@/components/Slider';
+import Toggle from './Toggle';
 
-interface ControlPanelProps {
+export interface ControlPanelProps {
   x: number;
   y: number;
   blur: number;
@@ -15,7 +16,7 @@ interface ControlPanelProps {
   onSpreadChange: (value: number) => void;
   onOpacityChange: (value: number) => void;
   onColorChange: (value: string) => void;
-  // Add other necessary props with their types
+  onToggleChange?: (value: boolean) => void;
 }
 
 export default function ControlPanel({
@@ -31,13 +32,16 @@ export default function ControlPanel({
   onSpreadChange,
   onOpacityChange,
   onColorChange,
+  onToggleChange,
 }: ControlPanelProps): JSX.Element {
   return (
-    <div className="px-1 overflow-y-auto flex-shrink-0 ">
+    <div className="px-1 overflow-y-scroll flex-shrink-0 ">
       <div className="flex flex-col h-full gap-4">
         <h2 className="font-medium text-xl border-b border-dashed border-gray-400 pb-1">
           Playground
         </h2>
+
+        <Toggle onToggleChange={onToggleChange} />
 
         <Slider label="X offset" value={x} onChange={onXChange} />
         <Slider label="Y offset" value={y} onChange={onYChange} />
